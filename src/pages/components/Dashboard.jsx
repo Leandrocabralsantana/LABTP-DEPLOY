@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DashboardUsers from "./DashboardUsers";
 import { DashboardProducts } from "./DashboardProducts";
 
 const Dashboard = ({ products }) => {
+  const [productList, setProductList] = useState(products); // [{}
   const [isProductsClicked, setIsProductsClicked] = useState(false);
   const [isClientsClicked, setIsClientsClicked] = useState(false);
 
@@ -15,6 +16,10 @@ const Dashboard = ({ products }) => {
     setIsClientsClicked(true);
     setIsProductsClicked(false);
   };
+
+  useEffect(() => {
+    setProductList(products);
+  }, [products]);
 
   return (
     <div className="p-8 h-[100%]">
@@ -38,7 +43,9 @@ const Dashboard = ({ products }) => {
         </button>
       </aside>
       <div className="mt-8">
-        {isProductsClicked ? <DashboardProducts products={products} /> : null}
+        {isProductsClicked ? (
+          <DashboardProducts products={productList} />
+        ) : null}
         {isClientsClicked ? <DashboardUsers /> : null}
       </div>
     </div>
