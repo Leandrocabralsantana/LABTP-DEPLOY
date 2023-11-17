@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { ModalWrapper, ModalContent } from "./styledComponents/Modals";
-import { userContext } from "../../contexts/UserContext";
+import { UserContext } from "../../contexts/UserContext";
 import { useLogin } from "../../hooks/useLogin";
 import { CreateProduct } from "./CreateProduct";
 import { DeleteProduct } from "./DeleteProduct";
